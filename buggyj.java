@@ -103,7 +103,7 @@ public class buggyj {
     private byte[] encrypt(SecretKeySpec secretKeySpec, IvParameterSpec initialVector, String initialText)
             throws NoSuchPaddingException, NoSuchAlgorithmException, UnsupportedEncodingException, BadPaddingException,
             IllegalBlockSizeException, InvalidAlgorithmParameterException, InvalidKeyException {
-        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, initialVector);
         return cipher.doFinal(initialText.getBytes("UTF-8"));
     }
@@ -111,7 +111,7 @@ public class buggyj {
     private byte[] decrypt(SecretKeySpec secretKeySpec, IvParameterSpec initialVector, byte[] ciphertext)
             throws NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException,
             InvalidAlgorithmParameterException, InvalidKeyException {
-        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, initialVector);
         return cipher.doFinal(ciphertext);
     }
@@ -120,7 +120,7 @@ public class buggyj {
     }
 
     private void desIsBetter() throws NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException {
-        Cipher c = Cipher.getInstance("DESede/ECB/PKCS5Padding");
+        Cipher c = Cipher des = Cipher.getInstance("AES");
         byte[] cipherText = c.doFinal("My plaintext".getBytes());
     }
 }
