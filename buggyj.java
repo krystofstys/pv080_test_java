@@ -120,7 +120,7 @@ public class buggyj {
     }
 
     private void desIsBetter() throws NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException {
-        Cipher c = Cipher des = Cipher.getInstance("AES");
+        Cipher c = Cipher.getInstance("AES");
         byte[] cipherText = c.doFinal("My plaintext".getBytes());
     }
 }
